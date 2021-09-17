@@ -2,12 +2,12 @@ package edu.academy.jc;
 
 public class Phone {
 
-    public int Number;
-    public String Model;
-    public double Weight;
+    private int Number;
+    private String Model;
+    private double Weight;
 
     public void receiveCall(String name){
-        System.out.println("Звонит "+name);
+        System.out.println("Is calling "+name);
     }
 
     public int getNumber() {
@@ -17,6 +17,26 @@ public class Phone {
     public Phone(int number, String model, double weight) {
         this(number,model);
         this.Weight = weight;
+    }
+
+    public void setNumber(int number) {
+        Number = number;
+    }
+
+    public String getModel() {
+        return Model;
+    }
+
+    public void setModel(String model) {
+        Model = model;
+    }
+
+    public double getWeight() {
+        return Weight;
+    }
+
+    public void setWeight(double weight) {
+        Weight = weight;
     }
 
     public Phone(int number, String model) {
@@ -32,7 +52,7 @@ public class Phone {
     }
 
     public void receiveCall(String name,int number){
-        System.out.println("Вызывает "+name+", номер - "+number);
+        System.out.println("Is calling "+name+", number - "+number);
     }
     /* public int sendMessage(int i,int...)
      {

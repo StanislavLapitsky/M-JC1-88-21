@@ -3,11 +3,11 @@ package edu.academy.jc;
 public class App {
     public static void main(String[] args) {
 
-            Phone apple = new Phone(123,"apple",0.15);
-            Phone siemens = new Phone(456,"siemens",0.26);
-            Phone nokia = new Phone(789,"nokia",0.33);
+            Phone apple = new Phone();
+            Phone siemens = new Phone();
+            Phone nokia = new Phone();
 
-            apple.Number = 123;
+         /*   apple.Number = 123;
             siemens.Number =456;
             nokia.Number=789;
 
@@ -17,15 +17,29 @@ public class App {
 
             apple.Weight = 0.15;
             siemens.Weight = 0.26;
-            nokia.Weight = 0.33;
+            nokia.Weight = 0.33;*/
 
-            System.out.println(apple.Model+" "+apple.Number+" "+apple.Weight);
-            System.out.println(siemens.Model+" "+siemens.Number+" "+siemens.Weight);
-            System.out.println(nokia.Model+" "+nokia.Number+" "+nokia.Weight);
+            apple.setModel("apple");
+            apple.setNumber(123);
+            apple.setWeight(0.15);
 
-            System.out.println( "Номер телефона - "+apple.getNumber());
-            System.out.println("Номер телефона - "+siemens.getNumber());
-            System.out.println("Номер телефона - "+ nokia.getNumber());
+            siemens.setModel("siemens");
+            siemens.setNumber(456);
+            siemens.setWeight(0.26);
+
+            nokia.setModel("nokia");
+            nokia.setNumber(789);
+            nokia.setWeight(0.33);
+
+
+
+            System.out.println(apple.getModel()+" "+apple.getNumber()+" "+apple.getWeight());
+            System.out.println(siemens.getModel()+" "+siemens.getNumber()+" "+siemens.getWeight());
+            System.out.println(nokia.getModel()+" "+nokia.getNumber()+" "+nokia.getWeight());
+
+            System.out.println( "Number phone - "+apple.getNumber());
+            System.out.println("Number phone - "+siemens.getNumber());
+            System.out.println("Number phone - "+ nokia.getNumber());
 
             apple.receiveCall("Sasha");
             siemens.receiveCall("Victor");
