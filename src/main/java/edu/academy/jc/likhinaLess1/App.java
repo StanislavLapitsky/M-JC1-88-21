@@ -1,7 +1,9 @@
-package edu.academy.jc;
+package edu.academy.jc.likhinaLess1;
+
 
 public class App {
     public static void main(String[] args) {
+
 
             Phone apple = new Phone();
             Phone siemens = new Phone();

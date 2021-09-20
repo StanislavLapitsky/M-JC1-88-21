@@ -1,4 +1,4 @@
-package edu.academy.jc;
+package edu.academy.jc.likhinaLess1;
 
 public class Phone {
 
