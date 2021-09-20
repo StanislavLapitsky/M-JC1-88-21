@@ -1,4 +1,4 @@
-package edu.academy.jc;
+package edu.academy.jc.metlushko.ht2;
 
 /*
 I used the same code in method encode and decode. how can I  write the code, using small code

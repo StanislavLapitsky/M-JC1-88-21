@@ -1,4 +1,4 @@
-package edu.academy.jc;
+package edu.academy.jc.metlushko.ht2;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package edu.academy.jc;
+package edu.academy.jc.metlushko.ht2;
 
 public class Phone {
     private int number;
