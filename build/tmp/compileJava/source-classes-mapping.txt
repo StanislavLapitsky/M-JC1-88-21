@@ -1,4 +1,0 @@
-edu/academy/jc/App.java
- edu.academy.jc.App
-edu/academy/jc/TsimafeiTESTgit/HW2/Phone.java
- edu.academy.jc.TsimafeiTESTgit.HW2.Phone
