@@ -1,6 +1,6 @@
 
 
-package edu.academy.jc.metlushko.ht2;
+package edu.academy.jc.metlushko.ht3;
 
 public class Clock {
     private int alarmMinutes;

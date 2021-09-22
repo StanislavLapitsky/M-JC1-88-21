@@ -1,4 +1,4 @@
-package edu.academy.jc.metlushko.ht2;
+package edu.academy.jc.metlushko.lesson2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,19 +78,19 @@ public class Car {
     public static void main(String[] args)  {
         Car vaz=new Car( );
         Car reno=new Car( );
-//        vaz.setColor("red");
-//        reno.setColor("black");
-//        reno.setModel("reno");
-//
-//        vaz.accelerateSpeed((short) 100);
-//        vaz.setModel("vaz");
-//
-//
-//        System.out.println(vaz.getModel()+"&"+reno.getModel());
-//        System.out.println(reno.accelerateSpeed((short) 280));
-//
-//        reno.slowDownSpeed((short) 0);
-//        vaz.slowDownSpeed((short) 0);
+        vaz.setColor("red");
+        reno.setColor("black");
+        reno.setModel("reno");
+
+        vaz.accelerateSpeed((short) 100);
+        vaz.setModel("vaz");
+
+
+        System.out.println(vaz.getModel()+"&"+reno.getModel());
+        System.out.println(reno.accelerateSpeed((short) 280));
+
+        reno.slowDownSpeed((short) 0);
+        vaz.slowDownSpeed((short) 0);
 
 
         printMemory();
