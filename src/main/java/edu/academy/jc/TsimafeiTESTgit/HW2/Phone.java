@@ -4,23 +4,31 @@ public class Phone {
     String number;
     String model;
     int weight;
-    String name="name";
+    String name = "name";
 
-    public Phone(String number, String model, int weight) {
-        this.number = number;
-        this.model = model;
-        this.weight = weight;
+    public Phone(String newNumber, String newModel, int newWeight) {
+        number = newNumber;
+        model = newModel;
+        weight = newWeight;
     }
 
-//    public Phone2(String number, String model) {
-//        this.number = number;
-//        this.model = model;
-//    }
+
+    public Phone(String newNumber, String newModel) {
+        this.number = newNumber;
+        this.model = newModel;
+    }
+
+    public Phone() {
+    }
 
 
     public String receiveCall() {
         System.out.println("Звонит " + "{" + name + "}");
         return this.name;
+    }
+
+    public void receiveCall(String name, String number) {
+        return;
     }
 
     public String getNumber() {
@@ -36,11 +44,11 @@ public class Phone {
         System.out.println("phone 2: " + "Model is: " + ph2.model + " number is: " + ph2.number + " weight is: " + ph2.weight);
         System.out.println("phone 3: " + "Model is: " + ph3.model + " number is: " + ph3.number + " weight is: " + ph3.weight);
 
-        System.out.println(ph1.getNumber());
-        System.out.println(ph2.getNumber());
-        System.out.println(ph3.getNumber());
+        System.out.println("number is: " + ph1.getNumber());
+        System.out.println("number is: " + ph2.getNumber());
+        System.out.println("number is: " + ph3.getNumber());
 
-
+        Phone ph4 = new Phone("375-29-233", "assmung", 8);
         System.out.println(ph1.receiveCall());
     }
 }
