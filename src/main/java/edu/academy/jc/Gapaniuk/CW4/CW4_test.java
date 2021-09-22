@@ -12,6 +12,12 @@ public class CW4_test {
         }
         else System.out.println("+");
 
+        if (cW.getSum(-4)!=-10){
+            System.out.println("error -10");
+        }
+        else System.out.println("+");
+
+
     }
 
 

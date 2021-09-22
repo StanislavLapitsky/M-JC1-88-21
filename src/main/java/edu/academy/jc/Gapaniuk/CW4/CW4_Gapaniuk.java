@@ -101,16 +101,27 @@ public class CW4_Gapaniuk {
         public int getSum ( int n)
         {
             int sum = 0;
+            if (n>0){
             for (int i = 1; i <= n; i++) {
                 if ((sum+i)<=100) {
                     sum += i;
                 }
                 else break;
 
+            }}
+            else { for (int i = -1; i >= n; i--) {
+
+                    sum += i;
+               }
+
+
             }
             return sum;
+
+            }
+
         }
 
 
 
-}
+
