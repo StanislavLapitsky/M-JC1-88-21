@@ -10,7 +10,13 @@ public class SeveralMaxElementArrTest {
         int [] arr1 = new int[arr.length];
         arr1= test.setElement(arr,1);
         System.out.println(Arrays.toString(arr1));
-        arr1=test.setElement(arr,4);
+        if (arr1[0]!=48){
+            System.out.println("error for"+1);
+        }
+        arr1=test.setElement(arr,3);
         System.out.println(Arrays.toString(arr1));
+        if ((arr1[0]!=48)||(arr1[1]!=35)||(arr1[2]!=19)){
+            System.out.println("error for"+3);        }
+
     }
 }
