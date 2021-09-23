@@ -1,4 +1,4 @@
-package edu.academy.jc.TsimafeiTESTgit.HW2;
+package edu.academy.jc.tsimafeitestgit.hw2;
 
 public class Phone {
     String number;

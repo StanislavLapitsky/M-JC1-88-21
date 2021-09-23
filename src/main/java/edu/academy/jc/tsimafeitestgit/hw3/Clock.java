@@ -1,4 +1,4 @@
-package edu.academy.jc.TsimafeiTESTgit.HW3;
+package edu.academy.jc.tsimafeitestgit.hw3;
 
 public class Clock {
 int alarmHours, alarmMinutes;
