@@ -3,35 +3,61 @@ package edu.academy.jc.Gapaniuk.HW4;
 public class SeveralMaxElementArr {
     public int[] setElement(int arr[], int n) {
         int[] arrMax = new int[n];
-        int min = arr[0];
-
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] < min) {
-                min = arr[i];
-            }
+        // сheck inital data
+        if (arr.length < n) {
+            System.out.println("The original data is not correct.");
+            return arrMax;
         }
-        int max = min;
+        // checking a particular case when answer is inital array
+        if (arr.length == n) {
+            return arr;
+        }
+        // initial filling of the array with Max Elements
+
         for (int i = 0; i < n; i++) {
-            max = min;
-            for (int j = 0; j < arr.length; j++) {
-                if ((arr[j]>max)&&(check(arrMax,arr[j]))){
-                    max=arr[j];
-                }
-
-
+            arrMax[i] = arr[i];
+        }
+        // solution algorithm
+        for (int i = n; i < arr.length; i++) {
+            if ((arr[i] > minElemet(arrMax))) { //comparison min of max with current element
+                arrMax[minElemetIndex(arrMax)] = arr[i];// changing min of max
             }
-            arrMax[i]=max;
+
+
         }
         return arrMax;
+
     }
-    boolean check(int[] a, int m){
-        boolean flag = true;
-        for (int i1=0;i1<a.length;i1++){
-            if (a[i1]==m){
-                flag = false;
-                break;
+
+
+    public int minElemet(int[] arrMax) {
+        //Finding min elenent
+        int min = arrMax[0];
+        for (int i = 1; i < arrMax.length; i++) {
+            if (arrMax[i] < min) {
+                min = arrMax[i];
+
             }
+
         }
-        return flag;
+        return min;
+
     }
+
+    public int minElemetIndex(int[] arrMax) {
+        //Finding min elenent index;
+        int minInd = 0;
+        for (int i = 1; i < arrMax.length; i++) {
+            if (arrMax[i] < arrMax[minInd]) {
+                minInd = i;
+
+            }
+
+
+        }
+        return minInd;
+
+    }
+
+
 }

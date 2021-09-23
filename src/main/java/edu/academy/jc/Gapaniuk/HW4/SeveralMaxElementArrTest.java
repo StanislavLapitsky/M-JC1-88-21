@@ -6,17 +6,25 @@ import java.util.Arrays;
 public class SeveralMaxElementArrTest {
     public static void main(String[] args) {
         SeveralMaxElementArr test = new SeveralMaxElementArr();
-        int [] arr =new int[] {1,2,15,48,9,7,35,19};
-        int [] arr1 = new int[arr.length];
-        arr1= test.setElement(arr,1);
-        System.out.println(Arrays.toString(arr1));
-        if (arr1[0]!=48){
-            System.out.println("error for"+1);
+        int[] arr = new int[]{1, 2, 2, 2, 4};
+
+
+        System.out.println(Arrays.toString(test.setElement(arr, 1)));
+        if (test.setElement(arr, 1)[0] != 4) {
+            System.out.println("error for" + 1);
         }
-        arr1=test.setElement(arr,3);
-        System.out.println(Arrays.toString(arr1));
-        if ((arr1[0]!=48)||(arr1[1]!=35)||(arr1[2]!=19)){
-            System.out.println("error for"+3);        }
+
+        System.out.println(Arrays.toString(test.setElement(arr, 3)));
+        if ((test.setElement(arr,3)[0] != 4) || (test.setElement(arr,3)[1]!= 2) || (test.setElement(arr,3)[2]!= 2)) {
+            System.out.println("error for" + 3);
+        }
+
+        System.out.println(Arrays.toString(test.setElement(arr, arr.length)));
+        if (arr!=test.setElement(arr, arr.length)){
+            System.out.println("error for" + arr.length);
+
+        }
+
 
     }
 }
