@@ -4,60 +4,19 @@ import java.nio.charset.StandardCharsets;
 
 public class Test {
     public static void main(String[] args) {
-//        int x = 8;
-//        int y = -7;
-//        int z = 5;
-//        boolean f;
-//
-//
-//        if ((x > 0) && (y > 0) && (z > 0)) {
-//            System.out.print("excellent");
-//        } else if (((x > 0) && (y > 0)) || ((z > 0) && (y > 0)) || ((z > 0) && (y > 0))) {
-//            System.out.print("good");
-//        } else if ((x > 0) || (y > 0) || (z > 0)) {
-//            System.out.print("fine");
-//        } else System.out.print("bad");
-//        System.out.println();
+
         Test t = new Test();
-//        int a = 31;
-//        int b = 4;
-//        t.checkDayAndMonthIsHoliday(a, b);
-//        System.out.println();
-//        t.checkDayAndMonthIsHoliday1(a, b);
-//        t.checkValue(true);
+
         String key="mama";
-        String s1=t.encode(key, "mama moet ramy");
+        String s1=t.xorr(key, "mama moet ramy doma");
         System.out.println(s1);
-        System.out.println(t.decode(key, s1));
+        System.out.println(t.xorr(key, s1));
 
     }
 
-    private String encode(String key, String message) {
 
 
-
-        byte[] theByteArrayMessage = message.getBytes(StandardCharsets.UTF_8);
-        byte[] theByteArrayKey = key.getBytes(StandardCharsets.UTF_8);
-        byte[] tempArr = new byte[theByteArrayMessage.length];
-
-
-        int j = 0;
-        for (int i = 0; i < theByteArrayMessage.length; i++) {
-            if (j == theByteArrayKey.length) {
-                j = 0;
-            }
-            //tempStr.append(String(theByteArrayKey[j]^theByteArrayMessage[i]));
-            tempArr[i] = (byte) (theByteArrayMessage[i] ^ theByteArrayKey[j]);
-            j++;
-           // System.out.print(tempArr[i] + " ");
-        }
-        String tempStr = new String(tempArr);
-     //   System.out.println();
-
-        return tempStr;
-    }
-
-    private String decode(String key, String message) {
+    private String xorr(String key, String message) {
         byte[] theByteArrayMessage = message.getBytes(StandardCharsets.UTF_8);
         byte[] theByteArrayKey = key.getBytes(StandardCharsets.UTF_8);
         byte[] tempArr = new byte[theByteArrayMessage.length];
