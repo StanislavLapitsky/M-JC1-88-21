@@ -19,7 +19,6 @@ public class StrOpTest {
         else {
             System.out.println("Not right working! ");
         }
-
     }
     public static void checkrepeatCharsHard(String s,String result){
         if((StrOp.repeatCharsHard(s)).equals(result)){

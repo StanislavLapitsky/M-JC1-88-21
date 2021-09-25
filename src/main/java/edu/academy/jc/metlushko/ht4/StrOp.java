@@ -61,7 +61,6 @@ public class StrOp {
         for (int k=n-'0'; (k-1)>0; k--) {
             s.append(ch1).append(ch2);
         }
-
         return s.toString();
     }
 
