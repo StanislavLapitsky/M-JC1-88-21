@@ -1,4 +1,4 @@
-package edu.academy.jc.metlushko.Lessons4;
+package edu.academy.jc.metlushko.lesson4;
 
 public class Sum {
     public static void main(String[] args) {

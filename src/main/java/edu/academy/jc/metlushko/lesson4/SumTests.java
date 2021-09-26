@@ -1,4 +1,4 @@
-package edu.academy.jc.metlushko.Lessons4;
+package edu.academy.jc.metlushko.lesson4;
 
 public class SumTests {
     public static void methodSumTest(){
@@ -20,6 +20,5 @@ public class SumTests {
         else {
             System.out.println("All test good!");
         }
-
     }
 }
