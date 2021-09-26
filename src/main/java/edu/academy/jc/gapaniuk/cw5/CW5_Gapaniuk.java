@@ -1,11 +1,11 @@
-package edu.academy.jc.Gapaniuk.CW5;
+package edu.academy.jc.gapaniuk.cw5;
 
-import edu.academy.jc.Gapaniuk.CW5.math.Test;
+import edu.academy.jc.gapaniuk.cw5.math.Test;
 
 public class CW5_Gapaniuk {
     public static void main(String[] args) {
         Test t = new Test();
-        edu.academy.jc.Gapaniuk.CW5.str.Test t2 =new edu.academy.jc.Gapaniuk.CW5.str.Test();
+        edu.academy.jc.gapaniuk.cw5.str.Test t2 =new edu.academy.jc.gapaniuk.cw5.str.Test();
         System.out.println(t.getHyp(3,4));
 
         double b = 2.4+2.4;

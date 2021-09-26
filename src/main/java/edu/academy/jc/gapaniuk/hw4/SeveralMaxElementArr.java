@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.HW4;
+package edu.academy.jc.gapaniuk.hw4;
 
 public class SeveralMaxElementArr {
     public int[] setElement(int arr[], int n) {

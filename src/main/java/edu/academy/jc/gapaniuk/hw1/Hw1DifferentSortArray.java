@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.HW1;
+package edu.academy.jc.gapaniuk.hw1;
 
 import java.util.Arrays;
 

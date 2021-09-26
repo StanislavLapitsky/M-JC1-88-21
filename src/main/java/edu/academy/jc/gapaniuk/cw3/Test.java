@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW3;
+package edu.academy.jc.gapaniuk.cw3;
 
 import java.nio.charset.StandardCharsets;
 

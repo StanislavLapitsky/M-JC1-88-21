@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.HW2;
+package edu.academy.jc.gapaniuk.hw2;
 
 public class Phone {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW5.math;
+package edu.academy.jc.gapaniuk.cw5.math;
 
 public class Test {
     public int getHyp(int k1, int k2){

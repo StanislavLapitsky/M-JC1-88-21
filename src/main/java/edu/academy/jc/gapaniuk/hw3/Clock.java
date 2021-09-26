@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.HW3;
+package edu.academy.jc.gapaniuk.hw3;
 
 public class Clock {
     public static void main(String[] args) {

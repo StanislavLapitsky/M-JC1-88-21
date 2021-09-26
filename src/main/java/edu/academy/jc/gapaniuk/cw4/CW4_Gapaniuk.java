@@ -1,6 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW4;
-
-import java.util.Random;
+package edu.academy.jc.gapaniuk.cw4;
 
 public class CW4_Gapaniuk {
     public static void main(String[] args) {

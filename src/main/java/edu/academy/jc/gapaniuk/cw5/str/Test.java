@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW5.str;
+package edu.academy.jc.gapaniuk.cw5.str;
 
 public class Test {
     public boolean isPalindrom(String word){

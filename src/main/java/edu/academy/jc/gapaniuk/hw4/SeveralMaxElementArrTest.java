@@ -1,6 +1,5 @@
-package edu.academy.jc.Gapaniuk.HW4;
+package edu.academy.jc.gapaniuk.hw4;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class SeveralMaxElementArrTest {

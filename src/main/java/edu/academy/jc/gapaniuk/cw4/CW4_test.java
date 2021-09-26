@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW4;
+package edu.academy.jc.gapaniuk.cw4;
 
 public class CW4_test {
     public static void main(String[] args) {

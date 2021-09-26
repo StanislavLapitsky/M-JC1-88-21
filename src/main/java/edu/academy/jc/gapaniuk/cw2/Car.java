@@ -1,4 +1,4 @@
-package edu.academy.jc.Gapaniuk.CW2;
+package edu.academy.jc.gapaniuk.cw2;
 
 public class Car {
     public static void main(String[] args) {
