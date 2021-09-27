@@ -5,8 +5,11 @@ import java.util.*;
 public class Star {
 
     public static void main(String[] args) {
-        int []arr=initializationRandomIntArray(29);
-        System.out.println(Arrays.toString(maxNumberInArray(arr,8)));
+        int []arr=initializationRandomIntArray(25);
+//        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+
+        System.out.println(Arrays.toString(maxNumberInArray(arr,5)));
     }
 
     public static int[] initializationRandomIntArray (int number){
@@ -17,21 +20,30 @@ public class Star {
         }
         return arr;
     }
-
-    public static int[] maxNumberInArray(int [] arr,int n){
-        int j=0;
-        Arrays.sort(arr);
+    public static int[] maxNumberInArray(int[] arr,int n){
         int[]arraysInt=new int[n];
-        System.out.println(Arrays.toString(arr));
-        for (int i = arr.length-1; i > 0; i--) {
-            if(arr[i]!=arr[i-1]){
-                arraysInt[j]=arr[i];
-                j++;
+        int j=0;
+        int max=0;
+        while (j<n){
+            for (int k : arr) {
+                if (max < k && k > arraysInt[j] && find(arraysInt, k)) {
+                    max = k;
+                    arraysInt[j] = k;
+                }
             }
-            if (j>=n){
-                break;
-            }
+            j++;
+            max=0;
         }
         return arraysInt;
     }
+    public static boolean find(int [] arr, int n){
+        boolean b=true;
+        for (int j : arr) {
+            if (j == n) {
+                return false;
+            }
+        }
+        return b;
+    }
+
 }
