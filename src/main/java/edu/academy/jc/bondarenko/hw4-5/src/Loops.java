@@ -1,7 +1,9 @@
 import java.util.Scanner;
 import java.util.Random;
+
 public class Loops {
     public static void main(String[] args) {
+
         Scanner in = new Scanner(System.in);
         Loops l = new Loops();
         // task 1
@@ -73,17 +75,18 @@ public class Loops {
             return 2;
         else return 3;
     }
+
     protected void rotateNumbers(int[] a) {
         for (int i = 0; i < a.length; i++) {
-            int m = 0, z=0;
+            int m = 0, z = 0;
             while (a[i] > 0) {
-                z=a[i]%10;
-                a[i]/=10;
-                m=m*10+z;
+                z = a[i] % 10;
+                a[i] /= 10;
+                m = m * 10 + z;
             }
-            a[i]=m;
+            a[i] = m;
         }
-        for(int i=0; i<a.length; i++)
-        System.out.print(a[i]+" ");
+        for (int i = 0; i < a.length; i++)
+            System.out.print(a[i] + " ");
     }
 }
