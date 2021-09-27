@@ -24,11 +24,11 @@ public class Star {
         int[]arraysInt=new int[n];
         System.out.println(Arrays.toString(arr));
         for (int i = arr.length-1; i > 0; i--) {
-            while (j<n){
-                if(arr[i]!=arr[i-1]){
-                    arraysInt[j]=arr[i];
-                    j++;
-                }
+            if(arr[i]!=arr[i-1]){
+                arraysInt[j]=arr[i];
+                j++;
+            }
+            if (j>=n){
                 break;
             }
         }
