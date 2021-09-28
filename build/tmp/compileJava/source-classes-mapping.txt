@@ -1,8 +1,0 @@
-edu/academy/jc/App.java
- edu.academy.jc.App
-edu/academy/jc/tsimafeitestgit/hw3/Clock.java
- edu.academy.jc.tsimafeitestgit.hw3.Clock
-edu/academy/jc/tsimafeitestgit/hw2/Phone.java
- edu.academy.jc.tsimafeitestgit.hw2.Phone
-edu/academy/jc/tsimafeitestgit/hw2/PhoneMain.java
- edu.academy.jc.tsimafeitestgit.hw2.PhoneMain
