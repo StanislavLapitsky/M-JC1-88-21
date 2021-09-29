@@ -1,4 +1,4 @@
-package edu.academy.jc.tsimafei.hw2.hw2;
+package edu.academy.jc.tsimafei.hw2;
 
 public class Phone {
     int number;
