@@ -5,6 +5,7 @@ public class StrOp {
         String s = "abc12ed9fg0";
         StrOp str = new StrOp();
         System.out.println(str.removeNumbers(s));
+        System.out.println(str.repeatChars("sa3db2c0f"));
     }
 
     public String removeNumbers(String s) {
@@ -19,18 +20,35 @@ public class StrOp {
         }
         return str.toString();
     }
-    public String repeatChars(String s){
-        StringBuilder str=new StringBuilder();
-        char res;
-        char[] chars = s.toCharArray();
-        for(int i =0;i<s.length();i++){
-            res=s.charAt(i);
-            if (Character.isDigit(res)) {
 
-                //I don't know what to do next, help
+    public String repeatChars(String s) {
+        char[] chars = s.toCharArray();
+        StringBuilder str = new StringBuilder();
+
+        char vol;
+        char lit;
+
+        for (int i = 0; i < s.length(); i++) {
+            vol = s.charAt(i);
+            if (!Character.isDigit(vol)) {
+                lit = vol;
+                str.append(lit);
             }
+
+            if (Character.isDigit(vol)) {
+
+                int num = Character.getNumericValue(vol);
+
+                for (int k = 1; k < num; k++) {
+                  //Please help more, I do not understand how to display and add up exactly the characters from the upcoming position in the array
+                }
+
+            }
+
         }
-        return s;
+
+        return str.toString();
+
     }
 }
 
