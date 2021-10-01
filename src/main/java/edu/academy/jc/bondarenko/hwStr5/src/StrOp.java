@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class StrOp {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         StrOp str = new StrOp();
