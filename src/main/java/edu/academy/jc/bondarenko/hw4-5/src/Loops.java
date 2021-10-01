@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.Random;
-
 public class Loops {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -22,7 +21,6 @@ public class Loops {
         System.out.println(l.getMaxSumArray(a, b, c));
         // task 2
         l.rotateNumbers(b);
-        // I have questions about test classes. I can't do them now
     }
 
     protected void initOfArr(int[] a, int[] b, int[] c) {
