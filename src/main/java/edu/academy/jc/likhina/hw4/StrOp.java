@@ -25,31 +25,29 @@ public class StrOp {
         char[] chars = s.toCharArray();
         StringBuilder str = new StringBuilder();
 
-        char vol;
-        char lit;
-
         for (int i = 0; i < s.length(); i++) {
-            vol = s.charAt(i);
-            if (!Character.isDigit(vol)) {
-                lit = vol;
-                str.append(lit);
+            if (Character.isDigit(chars[i]) && i != 0) {
+                str.append(getCharInString(chars[i - 1], chars[i]));
             }
-
-            if (Character.isDigit(vol)) {
-
-                int num = Character.getNumericValue(vol);
-
-                for (int k = 1; k < num; k++) {
-                  //Please help more, I do not understand how to display and add up exactly the characters from the upcoming position in the array
-                }
-
+            else {
+            str.append(chars[i]);
             }
 
         }
-
         return str.toString();
 
     }
+
+    public static String getCharInString(char a,char b){
+        StringBuilder s=new StringBuilder();
+       int num= Character.getNumericValue(b);
+        for(int k=1;k<num;k++){
+            s.append(a);
+
+        }
+        return s.toString();
+    }
+
 }
 
 
