@@ -5,6 +5,7 @@ public class Loops {
         Scanner in = new Scanner(System.in);
         Loops l = new Loops();
         // task 1
+
         System.out.println("Please, enter the number");
         int n = in.nextInt();
         System.out.println(l.getSqr(n));
@@ -20,6 +21,7 @@ public class Loops {
         l.printArr(a, b, c);
         System.out.println(l.getMaxSumArray(a, b, c));
         // task 2
+
         l.rotateNumbers(b);
     }
 
