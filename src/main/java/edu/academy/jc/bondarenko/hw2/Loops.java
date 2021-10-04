@@ -1,3 +1,5 @@
+package edu.academy.jc.bondarenko.hw2;
+
 import java.util.Scanner;
 import java.util.Random;
 public class Loops {
