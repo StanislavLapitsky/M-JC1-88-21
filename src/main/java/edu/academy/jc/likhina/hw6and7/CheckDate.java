@@ -1,5 +1,6 @@
 package edu.academy.jc.likhina.hw6and7;
 
+import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -12,9 +13,10 @@ public class CheckDate {
         System.out.println(date);
         System.out.println(checkDate(date));
 
-        String timeStr = "10:60:59";
-        String pattern = "^([0-2][0-9]):([0-5][0-9]):([0-5][0-9])$";
+        String timeStr = "29:10:59";
+        String pattern = "^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$";
         System.out.println(getTime(timeStr, pattern));
+
     }
 
     public static boolean checkDate(Date date) {
@@ -45,13 +47,25 @@ public class CheckDate {
         return false;
     }
 
-    public static boolean getTime(String timeStr, String pattern) {
+
+   public static LocalTime getTime(String timeStr, String pattern) {
+       LocalTime now= LocalTime.now();
+       int hour = now.getHour();
+       int minute = now.getMinute();
+       int second = now.getSecond();
+
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(timeStr);
-        if (m.matches()) {
-            return true;
+        if(m.matches()){
+           int[]arr=new int[3];
+           for (int i = 0; i < 3; i++) {
+               arr[i] = Integer.parseInt(timeStr.split(":")[i]);
+               hour = arr[0];
+               minute = arr[1];
+               second = arr[2];
+           }
         }
-        return false;
 
+return LocalTime.of(hour,minute,second);
     }
 }
