@@ -6,7 +6,7 @@ public class PhoneRecord implements Pair<Integer,String>{
     String str;
     public PhoneRecord(int i, String str) {
         this.i=i;
-        this.str=str;
+        this.str=str ;
     }
 
     @Override

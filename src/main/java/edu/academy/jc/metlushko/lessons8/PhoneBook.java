@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class PhoneBook {
     public static void main(String[] args) {
-        PhoneRecord  phoneRecord=new PhoneRecord(11,"asd");
+        PhoneRecord  phoneRecord=new PhoneRecord(11,"asd") ;
         PhoneRecord  phoneRecord1=new PhoneRecord(74,"qwe");
         PhoneRecord  phoneRecord2=new PhoneRecord(345,"rrr");
         PhoneRecord  phoneRecord3=new PhoneRecord(45,"zzzz");
