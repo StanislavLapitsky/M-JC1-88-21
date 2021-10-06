@@ -9,7 +9,6 @@ public class PhoneBook {
         PhoneRecord[]phoneRecords=new PhoneRecord[]{phoneRecord,phoneRecord1,phoneRecord2,phoneRecord3};
 
         PhoneBook phoneBook=new PhoneBook();
-
         phoneBook.getPhoneByNomber(phoneRecords,11);
         phoneBook.getPhoneByName(phoneRecords,"rrr");
         phoneBook.sortNumber(phoneRecords);
