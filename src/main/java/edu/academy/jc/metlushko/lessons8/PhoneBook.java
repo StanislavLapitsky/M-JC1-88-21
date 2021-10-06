@@ -1,5 +1,7 @@
 package edu.academy.jc.metlushko.lessons8;
 
+import java.util.Arrays;
+
 public class PhoneBook {
     public static void main(String[] args) {
         PhoneRecord  phoneRecord=new PhoneRecord(11,"asd");
@@ -9,29 +11,34 @@ public class PhoneBook {
         PhoneRecord[]phoneRecords=new PhoneRecord[]{phoneRecord,phoneRecord1,phoneRecord2,phoneRecord3};
 
         PhoneBook phoneBook=new PhoneBook();
-        phoneBook.getPhoneByNomber(phoneRecords,11);
-        phoneBook.getPhoneByName(phoneRecords,"rrr");
-        phoneBook.sortNumber(phoneRecords);
-        phoneBook.sortName(phoneRecords);
+
+        System.out.println(phoneBook.getPhoneByNomber(phoneRecords,11));
+        System.out.println(phoneBook.getPhoneByName(phoneRecords,"rrr"));
+        System.out.println(Arrays.toString(phoneBook.sortNumber(phoneRecords)));
+        System.out.println(Arrays.toString(phoneBook.sortName(phoneRecords)));
 
     }
-    public void getPhoneByNomber(PhoneRecord[]ph,int k){
-        for (PhoneRecord p : ph) {
-            if (k == p.getKey()) {
-                System.out.println(p.getKey() + " " + p.getValue() + "  " + p.getClass().getName()+"\n");
+
+    public PhoneRecord getPhoneByNomber(PhoneRecord[]ph,int k){
+        for (int i = 0; i < ph.length; i++) {
+            if (k == ph[i].getKey()) {
+                return ph[i];
             }
         }
-
+        return null;
     }
-    public void getPhoneByName(PhoneRecord[]ph,String str){
-        for (PhoneRecord p : ph) {
-            if (str.equals(p.getValue())) {
-                System.out.println(p.getKey() + " " + p.getValue() + "  " + p.getClass().getName()+"\n");
+
+
+    public PhoneRecord getPhoneByName(PhoneRecord[]ph,String str){
+        for (int i = 0; i < ph.length; i++) {
+            if (str.equals(ph[i].getValue())) {
+                return ph[i];
             }
         }
+        return null;
 
     }
-    public void sortNumber(PhoneRecord[]ph){
+    public PhoneRecord[] sortNumber(PhoneRecord[]ph){
         for (int i = 0; i < ph.length-1; i++) {
             if(ph[i].getKey()>ph[i+1].getKey()){
                 PhoneRecord k=ph[i];
@@ -39,23 +46,19 @@ public class PhoneBook {
                 ph[i+1]=k;
             }
         }
-        for (PhoneRecord p : ph) {
-            System.out.println(p.getKey() + " " + p.getValue());
-        }
-        System.out.println();
+        return ph;
     }
-    public void sortName(PhoneRecord[]ph){
-        for (int i = 0; i < ph.length-1; i++) {
-            if (ph[i].getValue().substring(0,1).charAt(0)>ph[i+1].getValue().substring(0,1).charAt(0)){
-                PhoneRecord k=ph[i];
-                ph[i]=ph[i+1];
-                ph[i+1]=k;
-            }
-        }
-        for (PhoneRecord p : ph) {
-            System.out.println(p.getKey() + " " + p.getValue());
 
+        public PhoneRecord[] sortName(PhoneRecord[]ph){
+        for (int i = 0; i < ph.length-1; i++) {
+                if (ph[i].getValue().substring(0,1).charAt(0)>ph[i+1].getValue().substring(0,1).charAt(0)){
+                    PhoneRecord k=ph[i];
+                    ph[i]=ph[i+1];
+                    ph[i+1]=k;
+                }
         }
+        return ph;
     }
+
 
 }
