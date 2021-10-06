@@ -1,49 +1,32 @@
 package edu.academy.jc.metlushko.lesson4;
 
-import java.util.*;
-
 public class Star {
 
     public static void main(String[] args) {
-        int []arr=initializationRandomIntArray(25);
-//        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
-
-        System.out.println(Arrays.toString(maxNumberInArray(arr,5)));
+        StarTest.checkStar(getN(new int[]{29,1,29,2,29,98,1,3,45,7,9,12,67,6,4,98},5),new int[]{98,98,67,45,29});
+        StarTest.checkStar(getN(new int[]{3,3,3,3,2},5),new int[]{3,3,3,3,2});
     }
 
-    public static int[] initializationRandomIntArray (int number){
-        Random random=new Random();
-        int [] arr=new int[number];
+    public static int[] getN(int[] arr,int n){
+        int [] arrNew=new int[n];
+        System.arraycopy(arr,0,arrNew,0,n);
+        for (int i = n; i < arr.length; i++) {
+            if(arrNew[findMin(arrNew)]<arr[i]){
+                arrNew[findMin(arrNew)]=arr[i];
+            }
+        }
+        return arrNew;
+    }
+    public static int findMin(int[]arr){
+        int min=arr[0];
+        int index=0;
         for (int i = 0; i < arr.length; i++) {
-            arr[i]=random.nextInt(28);
-        }
-        return arr;
-    }
-    public static int[] maxNumberInArray(int[] arr,int n){
-        int[]arraysInt=new int[n];
-        int j=0;
-        int max=0;
-        while (j<n){
-            for (int k : arr) {
-                if (max < k && k > arraysInt[j] && find(arraysInt, k)) {
-                    max = k;
-                    arraysInt[j] = k;
-                }
-            }
-            j++;
-            max=0;
-        }
-        return arraysInt;
-    }
-    public static boolean find(int [] arr, int n){
-        boolean b=true;
-        for (int j : arr) {
-            if (j == n) {
-                return false;
+            if(arr[i]<min){
+                index=i;
+                min=arr[index];
             }
         }
-        return b;
+        return index;
     }
 
 }
