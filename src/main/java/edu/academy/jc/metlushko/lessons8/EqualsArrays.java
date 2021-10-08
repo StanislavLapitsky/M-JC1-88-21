@@ -33,13 +33,7 @@ public class EqualsArrays {
         return sum;
     }
     public static int getDifference(int a,int b){
-        if((a-b)%2==1){
-            return (a-b-1)/2;
-        }
-        if ((a-b)%2==0){
-            return (a-b)/2;
-        }
-        return 0;
+        return (a-b)%2==1?(a-b-1)/2:(a-b)/2;
 
     }
 
@@ -47,8 +41,7 @@ public class EqualsArrays {
         System.arraycopy(n,0,arraysA,0,arraysA.length);
         System.arraycopy(n,5,arraysB,0,arraysA.length);
         for (int b = arraysB.length-1; b >0; b--) {
-            int a = 0;
-            while ( a < arraysA.length) {
+            for (int a = 0; a <arraysA.length; a++) {
                 if(sumArray(arraysB)==sumArray(arraysA)){
                     return;
                 }
@@ -59,25 +52,11 @@ public class EqualsArrays {
                     arraysB[b]=p;
                     break;
                 }
-                a++;
             }
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    }
+}
 
 
 
