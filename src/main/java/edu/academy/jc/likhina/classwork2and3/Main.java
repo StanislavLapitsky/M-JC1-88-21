@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        com.company.edu.academy.jc.Car car1 = new com.company.edu.academy.jc.Car("audi", "green", 50);
-        com.company.edu.academy.jc.Car car2 = new com.company.edu.academy.jc.Car("merc", "red", 60);
+        Car car1 = new Car("audi", "green", 50);
+        Car car2 = new Car("merc", "red", 60);
 
 
 
@@ -26,7 +26,7 @@ public class Main {
 
         ArrayList list = new ArrayList();
         for (int i = 0; i < 1000; i++) {
-            list.add(new com.company.edu.academy.jc.Car[i]);
+            list.add(new Car[i]);
         }
         printMamory();
         Runtime.getRuntime().gc();
