@@ -65,7 +65,7 @@ public class Test1 {
     private boolean isValidClassName(String name) {
 
 
-            return name.matches("^[A-Z]{1}(([a-z0-9]+)|(_{1})|([A-Z]{1}))+")
+            return name.matches("^[A-Z]{1}(([a-z0-9]+)|(_{1})|([A-Z]{1}))+");
 
     }
 

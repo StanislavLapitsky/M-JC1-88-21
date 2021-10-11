@@ -10,14 +10,14 @@ public class MyList extends ArrayList<Integer> {
         this.maxElement =maxElement;
     }
 
-    public void add (int index, int element)// throws TooManyElementsException
+    public void add (int index, int element) throws TooManyElementsException
     {
         if (index<this.maxElement){
             MyList.super.add(index,element);
         }
-//        else {
-//            throw new TooManyElementsException("List is filled");
-//        }
+        else {
+            throw new TooManyElementsException("List is filled");
+        }
 
 
 

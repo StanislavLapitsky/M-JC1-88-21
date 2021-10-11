@@ -4,13 +4,12 @@ public class PhoneBook {
     public static void main(String[] args) {
         PhoneBook pb = new PhoneBook();
 
-        // pb.print(pb.arr);
+
         pb.sortByName(pb.arr);
         System.out.println(pb.getPhoneByName("Lena"));
-        // pb.print(pb.arr);
+
         pb.sortByNumber(pb.arr);
         System.out.println(pb.getPhoneByPhone(2));
-      //  pb.print(pb.arr);
 
 
     }
