@@ -1,12 +1,22 @@
 package edu.academy.jc.metlushko.lesson9;
 
 import java.util.Comparator;
-import java.util.Objects;
 
 public class ComparatorSortAge implements Comparator<User> {
     @Override
-    public int compare(User obj1,User obj2){
+    public int compare(User obj1, User obj2) {
 
-        return Objects.requireNonNull(obj1).getAge().compareTo(Objects.requireNonNull(obj2).getAge());
+        if (obj1.getAge() == null && obj2.getAge() == null) {
+            return Integer.MIN_VALUE;
+        }
+        if (obj1.getAge() != null && obj2.getAge() == null) {
+            return obj1.getAge().compareTo(Integer.MIN_VALUE);
+        }
+        if (obj1.getAge() == null && obj2.getAge() != null) {
+            return Integer.valueOf(Integer.MIN_VALUE).compareTo(obj2.getAge());
+        }
+
+
+        return obj1.getAge().compareTo(obj2.getAge());
     }
 }

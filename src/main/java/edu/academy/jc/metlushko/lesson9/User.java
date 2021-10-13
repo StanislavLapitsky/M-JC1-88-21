@@ -41,8 +41,11 @@ public class User {
     public static void main(String[] args) {
         User vacya = new User("Peter", 25);
         User peter = new User("Vacya", 30);
-        User kolya = new User("Kolya", 26);
-        User artem = new User("Artem", 31);
+        User x = new User(null, null);
+        User kolya = new User("Kolya", null);
+        User kolya2 = new User(null, 26);
+        User artem = new User("Artem", null);
+        User artem2 = new User(null,56 );
 
         ComparatorSortName comparatorSortName = new ComparatorSortName();
         ComparatorSortAge comparatorSortAge = new ComparatorSortAge();
@@ -50,8 +53,12 @@ public class User {
         List<User> arrayList = new ArrayList<>();
         arrayList.add(vacya);
         arrayList.add(peter);
+        arrayList.add(x);
         arrayList.add(kolya);
+        arrayList.add(kolya2);
         arrayList.add(artem);
+        arrayList.add(artem2);
+
 
 
         arrayList.sort(comparatorSortName);
