@@ -7,13 +7,13 @@ public class ComparatorSortAge implements Comparator<User> {
     public int compare(User obj1, User obj2) {
 
         if (obj1.getAge() == null && obj2.getAge() == null) {
-            return Integer.MIN_VALUE;
+            return 0;
         }
         if (obj1.getAge() != null && obj2.getAge() == null) {
-            return obj1.getAge().compareTo(Integer.MIN_VALUE);
+            return obj1.getAge().compareTo(0);
         }
         if (obj1.getAge() == null && obj2.getAge() != null) {
-            return Integer.valueOf(Integer.MIN_VALUE).compareTo(obj2.getAge());
+            return Integer.valueOf(0).compareTo(obj2.getAge());
         }
 
 
