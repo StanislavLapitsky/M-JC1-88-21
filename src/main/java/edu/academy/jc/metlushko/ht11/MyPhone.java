@@ -36,7 +36,7 @@ public class MyPhone implements PhoneBook {
 
     @Override
     public void storeToFile(File phoneBookFile) {
-        try (FileWriter fw = new FileWriter(this.phoneBookFile = phoneBookFile, true);
+        try ( FileWriter fw = new FileWriter(this.phoneBookFile = phoneBookFile, true);
              BufferedWriter bw = new BufferedWriter(fw)) {
             if (phoneBookFile.exists()) {
                 for (Map.Entry<Integer, String> k : pb.entrySet()) {
