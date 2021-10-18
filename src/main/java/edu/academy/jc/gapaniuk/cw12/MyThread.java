@@ -10,6 +10,9 @@ public class MyThread extends Thread {
         myThread1.start();
         myThread2.start();
         myThread3.start();
+        MyRunneble myRunneble = new MyRunneble();
+        Thread mThread = new Thread(myRunneble);
+        mThread.start();
 
 
     }
@@ -17,6 +20,7 @@ public class MyThread extends Thread {
     static int globalCounter;
     private int counter;
     static int globalCounterSync;
+    public static Integer globalCounterSync1=0;
 
     public static synchronized void inccc() {
         globalCounterSync++;
@@ -27,6 +31,10 @@ public class MyThread extends Thread {
     public void run() {
 
         while ((this.counter < 100) && (globalCounter < 100) && (globalCounterSync < 100)) {
+            synchronized (MyThread.globalCounterSync1) {
+                globalCounterSync1++;
+            }
+
             this.inccc();
             this.counter++;
             globalCounter++;
