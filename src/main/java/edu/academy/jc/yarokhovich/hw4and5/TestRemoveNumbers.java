@@ -7,9 +7,8 @@ public class TestRemoveNumbers {
     }
     public static void test1(){
         StrOp strOp = new StrOp();
-        String s = "sa3db2c0f";
-        String s2 = "320";
-        System.out.println(strOp.removeNumbers(s));
+        String s = "sa3db";
+        String s2 = "sadb";
         if( strOp.removeNumbers(s).equals(s2)){
             System.out.println("test 1 good");
         } else {

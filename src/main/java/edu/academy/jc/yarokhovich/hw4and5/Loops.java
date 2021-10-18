@@ -4,7 +4,7 @@ public class Loops {
     public int getSqr(int n) {
         int sqr = 0;
         if (n == 0) {
-            return 1;
+            return 0;
         }
         for (int i = 0; i < n; i++) {
             sqr += n;

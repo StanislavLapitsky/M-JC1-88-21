@@ -6,7 +6,7 @@ public class TestSqr {
         if (loops.getSqr(5)==25){
             System.out.println(loops.getSqr(5) + " good");
         }else System.out.println("bad");
-        if (loops.getSqr(0)==1){//n is the degree, not sqr
+        if (loops.getSqr(0)==0){
             System.out.println(loops.getSqr(0) + " good");
         }else System.out.println("bad");
     }
