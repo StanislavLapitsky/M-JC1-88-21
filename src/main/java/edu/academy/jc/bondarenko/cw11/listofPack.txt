@@ -1,0 +1,22 @@
+c:\\$AV_ASW
+c:\\$Recycle.Bin
+c:\\devlist.txt
+c:\\Documents and Settings
+c:\\DRIVERS
+c:\\eSupport
+c:\\Finish.log
+c:\\hiberfil.sys
+c:\\MSOCache
+c:\\OneDriveTemp
+c:\\pagefile.sys
+c:\\PerfLogs
+c:\\Program Files
+c:\\Program Files (x86)
+c:\\ProgramData
+c:\\Recovery
+c:\\STDU Viewer
+c:\\swapfile.sys
+c:\\System Volume Information
+c:\\Users
+c:\\Windows
+c:\\запись экрана
