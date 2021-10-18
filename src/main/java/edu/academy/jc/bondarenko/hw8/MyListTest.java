@@ -1,5 +1,4 @@
 package edu.academy.jc.bondarenko.hw8;
-
 import java.util.ArrayList;
 import java.util.List;
 

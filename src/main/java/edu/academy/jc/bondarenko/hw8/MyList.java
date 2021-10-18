@@ -2,7 +2,6 @@ package edu.academy.jc.bondarenko.hw8;
 
 import java.util.*;
 
-
 public class MyList {
     public MyList(int maxElements) throws CatchLenghtEx {
         List<Integer> list = new ArrayList<>();

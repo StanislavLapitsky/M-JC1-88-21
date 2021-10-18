@@ -13,6 +13,7 @@ public class HomeWork {
         System.out.println("The result: ");
         System.out.println(hw.getCharsCount(s));
     }
+
     public Map<Character, Integer> getCharsCount(String s) {
         int counter = 0;
         Map<Character, Integer> m1 = new HashMap();
