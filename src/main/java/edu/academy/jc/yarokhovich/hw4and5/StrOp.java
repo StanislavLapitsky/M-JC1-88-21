@@ -6,7 +6,7 @@ public class StrOp {
         String digits="";
         for (int i = 0; i < str.length(); i++) {
             char chrs = str.charAt(i);
-            if (Character.isDigit(chrs))
+            if (Character.isDigit(chrs)==false)
                 digits = digits.concat(String.valueOf(chrs));
         }
         return digits;
