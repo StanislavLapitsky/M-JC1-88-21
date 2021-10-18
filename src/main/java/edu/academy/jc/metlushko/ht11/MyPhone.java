@@ -5,73 +5,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyPhone implements PhoneBook {
-    private String name = "";
-    private int number;
     private File phoneBookFile = null;
-    private static final String ADDRESS = "src/com/ht11/phoneBookFile.txt";
-    private HashMap<Integer, String> pb=new HashMap<>();
+    private String address = "src/com/ht11/phoneBookFile.txt";
+    private HashMap<Integer, String> pb = new HashMap<>();
 
     @Override
     public void addUser(String name, int number) {
-        pb.put(this.number = number, this.name = name);
+        pb.put(number, name);
     }
 
     @Override
     public int getNumberByName(String name) {
-        try (FileReader fr = new FileReader(phoneBookFile);
-             BufferedReader br = new BufferedReader(fr)) {
-            String str;
-            boolean b=false;
-            while ((str = br.readLine()) != null) {
-                String[] arr = str.split(";");
-                for (int i = 0; i < pb.size(); i++) {
-                    if (arr[1].equals(name)) {
-                        return Integer.parseInt(arr[0]);
-                    }
-                }
+        for (Map.Entry<Integer, String> k : pb.entrySet()) {
+            if (name.equals(k.getValue())) {
+                return (k.getKey());
             }
-            if (!b){
-                throw new NumberNotFoundException();
-            }
-        } catch (IOException | NumberNotFoundException e) {
-            System.out.println(e.getMessage());
         }
         return 0;
     }
 
     @Override
     public String getNameByNumber(int number) {
-        try (FileReader fr = new FileReader(phoneBookFile);
-             BufferedReader br = new BufferedReader(fr)) {
-            String str;
-            boolean b=false;
-            while ((str = br.readLine()) != null) {
-                String[] arr = str.split(";");
-                for (int i = 0; i < pb.size(); i++) {
-                    if (arr[0].equals(String.valueOf(number))) {
-                        b=true;
-                        return (arr[1]);
-                    }
-                }
-            }
-            if (!b){
-                throw new NameNotFoundException();
-            }
-        } catch (IOException | NameNotFoundException e) {
-            System.out.println(e.getMessage());
+        int num = Integer.parseInt(String.valueOf(number));
+        int length = String.valueOf(number).length();
+        if (num > 0 && length > 8) {
+            return pb.get(number);
         }
-        return "";
+        return "Error enter";
     }
 
     @Override
     public void storeToFile(File phoneBookFile) {
-        try (FileWriter fw = new FileWriter(this.phoneBookFile = phoneBookFile,true);
+        try (FileWriter fw = new FileWriter(this.phoneBookFile = phoneBookFile, true);
              BufferedWriter bw = new BufferedWriter(fw)) {
-            boolean b=false;
-            for (Map.Entry<Integer, String> k : pb.entrySet()) {
-                bw.write(k.getKey() + ";" + k.getValue() + ";" + "\n");
+            if (phoneBookFile.exists()) {
+                for (Map.Entry<Integer, String> k : pb.entrySet()) {
+                    bw.write(k.getKey() + ";" + k.getValue() + ";" + "\n");
+                }
+            } else {
+                throw new FileNotFoundException();
             }
-
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -79,13 +52,21 @@ public class MyPhone implements PhoneBook {
 
     @Override
     public void loadFromFile(File phoneBookFile) {
-
         try (FileReader fr = new FileReader(this.phoneBookFile = phoneBookFile);
              BufferedReader br = new BufferedReader(fr)) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+            if (phoneBookFile.exists()) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] arr = line.split(";");
+                    if (!line.equals("")) {
+                        pb.put(Integer.parseInt(arr[0]), arr[1]);
+                    }
+                }
+                System.out.println(pb);
+            } else {
+                throw new FileNotFoundException();
             }
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -95,12 +76,14 @@ public class MyPhone implements PhoneBook {
     public static void main(String[] args) {
         System.out.println("Task 2 Check");
         PhoneBook phoneBook = new MyPhone();
+        File myFile = new File(new MyPhone().address);
         phoneBook.addUser("Artem", 293947710);
         phoneBook.addUser("Olga", 298745213);
         phoneBook.addUser("Marina", 298745632);
         phoneBook.addUser("Artem", 293978911);
-        File myFile=new File(ADDRESS);
         phoneBook.storeToFile(myFile);
+        phoneBook.loadFromFile(myFile);
+
         PhoneBook phoneBook2 = new MyPhone();
         phoneBook2.addUser("Sergey", 293544916);
         phoneBook2.addUser("Ludmila", 291028836);
@@ -109,11 +92,11 @@ public class MyPhone implements PhoneBook {
         phoneBook2.storeToFile(myFile);
         phoneBook2.loadFromFile(myFile);
         System.out.println(phoneBook.getNameByNumber(293947710).equals("Artem"));
-        System.out.println(phoneBook.getNumberByName("Marina")==298745632);
+        System.out.println(phoneBook.getNumberByName("Marina") == 298745632);
 
         System.out.println("Task 3 Exception");
-        phoneBook.getNumberByName("454");
-        phoneBook.getNameByNumber(223);
+        System.out.println(phoneBook.getNumberByName("454"));
+        System.out.println(phoneBook.getNameByNumber(223));
         phoneBook.storeToFile(new File("/asd"));
 
     }
