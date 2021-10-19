@@ -3,7 +3,6 @@ package edu.academy.jc.bondarenko.hw8;
 import java.util.HashSet;
 import java.util.Set;
 
-
 public class User {
     private String firstName;
     private String lastName;
@@ -33,20 +32,20 @@ public class User {
 
         this.lastName = lastName;
     }
-
-    public boolean equalsMeth(User u) {
+    @Override
+    public boolean equals(java.lang.Object u) {
         if(this==u)
             return true;
         if(u==null || getClass()!=u.getClass())
             return false;
-        if (this.firstName == u.firstName)
-            if (this.lastName == u.lastName)
+        if (this.firstName == ((User) u).firstName)
+            if (this.lastName == ((User) u).lastName)
                 return true;
             else return false;
         else return false;
     }
-
-    public int hashCodeMeth() {
+@Override
+    public int hashCode() {
         int res=0;
         if(firstName!=null)
             res+=firstName.hashCode();
@@ -59,11 +58,6 @@ public class User {
     public static void main(String[]args){
         User u1=new User("John","Smith");
         User u2=new User("John","Smith");
-        //u1.setFirstName("John");
-        //u1.setLastName("Smith");
-
-        //u2.setFirstName("John");
-        //u2.setLastName("Smith");
 
         HashSet<User> hashSet=new HashSet<>();
         hashSet.add(u1);
@@ -78,8 +72,8 @@ public class User {
         System.out.println("Set size "+ set.size());
 
 
-        System.out.println("Equal method: "+u1.equalsMeth(u2));
+        System.out.println("Equal method: "+u1.equals(u2));
         System.out.println("Hash code meth: ");
-        System.out.println(u1.hashCodeMeth()==u2.hashCodeMeth());
+        System.out.println(u1.hashCode()==u2.hashCode());
     }
 }
