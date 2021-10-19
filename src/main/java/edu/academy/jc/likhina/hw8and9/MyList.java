@@ -1,10 +1,8 @@
 package edu.academy.jc.likhina.hw8and9;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 
-public class MyList {
+public class MyList extends ArrayList{
     private final List<Integer> list;
     private final int maxElements;
 
@@ -12,7 +10,7 @@ public class MyList {
         this.maxElements = maxElements;
         list = new ArrayList<>(maxElements);
     }
-
+ @Override
     public int size() {
         return list.size();
     }

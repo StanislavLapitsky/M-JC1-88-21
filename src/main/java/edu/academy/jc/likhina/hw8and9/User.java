@@ -40,10 +40,11 @@ public class User {
         if (getClass() != user.getClass())
             return false;
         User other = (User) user;
-        if (firstName != other.firstName)
+        if (!firstName.equals(other.firstName))
             return false;
-        if (lastName != other.lastName)
+        if (!lastName.equals(other.lastName))
             return false;
+
         return true;
     }
 
