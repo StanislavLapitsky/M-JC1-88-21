@@ -7,12 +7,14 @@ public class User {
     private String firstName;
     private String lastName;
 
-    public User(){}
-
-    public User(String firstName, String lastName){
-        this.firstName=firstName;
-        this.lastName=lastName;
+    public User() {
     }
+
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFirstName() {
 
         return firstName;
@@ -32,48 +34,50 @@ public class User {
 
         this.lastName = lastName;
     }
+
     @Override
     public boolean equals(java.lang.Object u) {
-        if(this==u)
+        if (this == u)
             return true;
-        if(u==null || getClass()!=u.getClass())
+        if (u == null || getClass() != u.getClass())
             return false;
-        if (this.firstName == ((User) u).firstName)
-            if (this.lastName == ((User) u).lastName)
+        if (this.firstName.equals(((User) u).firstName))
+            if (this.lastName.equals(((User) u).lastName))
                 return true;
             else return false;
         else return false;
     }
-@Override
+
+    @Override
     public int hashCode() {
-        int res=0;
-        if(firstName!=null)
-            res+=firstName.hashCode();
-        else if(lastName!=null)
-            res+=lastName.hashCode();
+        int res = 0;
+        if (firstName != null)
+            res += firstName.hashCode();
+        else if (lastName != null)
+            res += lastName.hashCode();
         return res;
     }
 
 
-    public static void main(String[]args){
-        User u1=new User("John","Smith");
-        User u2=new User("John","Smith");
+    public static void main(String[] args) {
+        User u1 = new User("John", "Smith");
+        User u2 = new User("John", "Smith");
 
-        HashSet<User> hashSet=new HashSet<>();
+        HashSet<User> hashSet = new HashSet<>();
         hashSet.add(u1);
         hashSet.add(u2);
 
-        System.out.println("Hash size: "+ hashSet.size());
+        System.out.println("Hash size: " + hashSet.size());
 
-        Set<User> set=new HashSet<>();
+        Set<User> set = new HashSet<>();
         set.add(u1);
         set.add(u2);
 
-        System.out.println("Set size "+ set.size());
+        System.out.println("Set size " + set.size());
 
 
-        System.out.println("Equal method: "+u1.equals(u2));
+        System.out.println("Equal method: " + u1.equals(u2));
         System.out.println("Hash code meth: ");
-        System.out.println(u1.hashCode()==u2.hashCode());
+        System.out.println(u1.hashCode() == u2.hashCode());
     }
 }

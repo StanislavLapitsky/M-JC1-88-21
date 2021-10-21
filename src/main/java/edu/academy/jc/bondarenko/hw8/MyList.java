@@ -2,25 +2,26 @@ package edu.academy.jc.bondarenko.hw8;
 
 import java.util.*;
 
-public class MyList {
+public class MyList extends ArrayList {
+    private List<Integer> list;
+    private int maxElements;
 
-    public MyList(int maxElements) throws CatchLenghtEx {
+    public MyList(int maxElements) {
+        this.maxElements = maxElements;
+        list = new ArrayList<>();
+    }
 
-        List<Integer> list = new ArrayList<>();
-        Random random = new Random();
-        while (maxElements != 0) {
-            list.add(random.nextInt(10) - 3);
-            maxElements--;
-        }
-        if (list.size() > maxElements)
-            throw new CatchLenghtEx();
+    public void add(int num) throws CatchLenghtEx {
 
-        System.out.println("List size: " + list.size());
+        if (list.size() < maxElements)
+            list.add(num);
+        else throw new CatchLenghtEx();
+    }
 
-        System.out.println("Your collection ");
-        Iterator<Integer> listIterator = list.listIterator();
-        while (listIterator.hasNext()) {
-            System.out.print(listIterator.next() + " ");
-        }
+    public void print() {
+        System.out.println("Your collection: ");
+        Iterator<Integer> integerIterator = list.iterator();
+        while (integerIterator.hasNext())
+            System.out.println(integerIterator.next() + " ");
     }
 }
