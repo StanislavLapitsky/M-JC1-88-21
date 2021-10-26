@@ -8,7 +8,6 @@ public class MyPhoneBook implements PhoneBook {
     private static final HashMap<String, Integer> phoneBookMap = new HashMap<>();
 
 
-
     @Override
     public void addUser(String name, int number) {
         if (name == null) {
@@ -34,7 +33,7 @@ public class MyPhoneBook implements PhoneBook {
 
     @Override
     public String getNameByNumber(int number) {
-        String key = "";
+        String key = "there is no user with this number ";
         for (Entry<String, Integer> entry : phoneBookMap.entrySet()) {
             if (entry.getValue() == number) {
                 key = entry.getKey();
@@ -47,7 +46,7 @@ public class MyPhoneBook implements PhoneBook {
     @Override
     public void storeToFile(File phoneBookFile) {
         try {
-            try (FileWriter writer = new FileWriter(phoneBookFile)) {
+            try (FileWriter writer = new FileWriter(phoneBookFile, true)) {
                 try (BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
                     for (Entry entry : phoneBookMap.entrySet())
                         bufferedWriter.write(entry.getKey() + ";" + entry.getValue() + ";" + "\n");
@@ -96,8 +95,7 @@ public class MyPhoneBook implements PhoneBook {
     public static void main(String[] args) {
 
         File phoneBookFile = new File("D:/PhoneBook.txt");
-        //I don't understand how to create a new book with a new address(I understand that you need to change the address in the variable),
-        // and it stopped writing to the file, shows that it is empty, but reads from it(busy file?)
+
 
         PhoneBook phoneBook1 = new MyPhoneBook();
         PhoneBook phoneBook2 = new MyPhoneBook();
