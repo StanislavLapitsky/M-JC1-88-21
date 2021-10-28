@@ -45,19 +45,26 @@ public class MyPhoneBook implements PhoneBook {
 
     @Override
     public void storeToFile(File phoneBookFile) {
+        FileWriter writer = null;
         try {
-            try (FileWriter writer = new FileWriter(phoneBookFile, true)) {
-                try (BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
-                    for (Entry entry : phoneBookMap.entrySet())
-                        bufferedWriter.write(entry.getKey() + ";" + entry.getValue() + ";" + "\n");
-                }
-
-            }
-
+            writer = new FileWriter(phoneBookFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        assert writer != null;
+        BufferedWriter bufferedWriter = new BufferedWriter(writer);
+        for (Entry<String, Integer> entry : phoneBookMap.entrySet()) {
+            try {
+                bufferedWriter.write(entry.getKey() + ";" + entry.getValue() + ";" + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -76,17 +83,27 @@ public class MyPhoneBook implements PhoneBook {
                 if (reader != null) {
                     line = reader.readLine();
                 }
-                String[] arrStr = new String[0];
-                if (line != null) {
+                String[] arrStr;
+                while (line != null) {
                     arrStr = line.split(";");
-                }
-                if (line != null && !line.equals("")) {
-                    phoneBookMap.put(arrStr[0], Integer.valueOf(arrStr[1]));
+
+                    if (!line.equals("")) {
+                        phoneBookMap.put(arrStr[0], Integer.valueOf(arrStr[1]));
+
+                    }
+                    System.out.println(phoneBookMap);
+
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-                System.out.println(phoneBookMap);
+
+                try {
+                    assert reader != null;
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -120,8 +137,9 @@ public class MyPhoneBook implements PhoneBook {
         System.out.println(phoneBook1.getNumberByName("Sveta") == 253697814);
         System.out.println(phoneBook1.getNumberByName("Sasha") == 954887444);
         System.out.println(phoneBook1.getNumberByName("ksdcmskdm") == 1445646565);
+        System.out.println(phoneBook2.getNumberByName("Nikita") == 4544);
 
-
+        System.out.println(phoneBook2.getNameByNumber(4544).equals("Nikita"));
         System.out.println(phoneBook1.getNameByNumber(293593817).equals("Andrey"));
         System.out.println(phoneBook1.getNameByNumber(29359381).equals("Andrey"));
 
