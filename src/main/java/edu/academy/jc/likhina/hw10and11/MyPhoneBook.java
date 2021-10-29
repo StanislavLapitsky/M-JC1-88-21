@@ -2,6 +2,7 @@ package edu.academy.jc.likhina.hw10and11;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class MyPhoneBook implements PhoneBook {
@@ -56,9 +57,11 @@ public class MyPhoneBook implements PhoneBook {
         for (Entry<String, Integer> entry : phoneBookMap.entrySet()) {
             try {
                 bufferedWriter.write(entry.getKey() + ";" + entry.getValue() + ";" + "\n");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
         try {
             writer.close();
@@ -117,11 +120,6 @@ public class MyPhoneBook implements PhoneBook {
         PhoneBook phoneBook1 = new MyPhoneBook();
         PhoneBook phoneBook2 = new MyPhoneBook();
 
-
-        phoneBook1.storeToFile(phoneBookFile);
-        phoneBook2.storeToFile(phoneBookFile);
-
-
         phoneBook1.addUser("Andrey", 293593817);
         phoneBook1.addUser("Sveta", 253697814);
         phoneBook1.addUser("Sasha", 447896541);
@@ -129,8 +127,11 @@ public class MyPhoneBook implements PhoneBook {
         phoneBook1.addUser("Sasha", 954887444);
         phoneBook1.addUser("Karl", 123456789);
         phoneBook1.addUser("", 1445646565);
-
         phoneBook2.addUser("Nikita", 4544);
+
+        phoneBook1.storeToFile(phoneBookFile);
+        phoneBook2.storeToFile(phoneBookFile);
+
         phoneBook1.loadFromFile(phoneBookFile);
         phoneBook2.loadFromFile(phoneBookFile);
 
