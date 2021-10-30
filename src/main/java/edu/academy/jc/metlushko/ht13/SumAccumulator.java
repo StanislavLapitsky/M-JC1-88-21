@@ -1,28 +1,28 @@
 package edu.academy.jc.metlushko.ht13;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
 public class SumAccumulator extends Thread {
-    List<Integer> list;
+    private final BlockingQueue<Integer> blockingQueue;
+    private int sum = 0;
+    private int i = 0;
 
-    public SumAccumulator() {
-        list = new ArrayList<>();
+    public SumAccumulator(BlockingQueue<Integer> blockingQueue) {
+        this.blockingQueue = blockingQueue;
     }
 
     @Override
     public void run() {
-
-        int sum = 0;
-        for (int i = 0; i < 10; i++) {
-            list.add(i * i);
+        while (i != 99) {
+            try {
+                int a = blockingQueue.take();
+                System.out.println("SumAccumulator read and remove." + a);
+                sum += a;
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+            i++;
+            System.out.println("Sum " + sum);
         }
-        System.out.println("SumAccumulator " + list);
-        for (int i = list.size() - 1; i >= 0; i--) {
-            System.out.println("SumAccumulator Delete " + list.get(i));
-            sum += list.get(i);
-            list.remove(i);
-        }
-        System.out.println("SumAccumulator Sum :" + sum);
     }
 }

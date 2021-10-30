@@ -1,23 +1,23 @@
 package edu.academy.jc.metlushko.ht13;
-import java.util.*;
 
-public class Generator extends Thread{
-    List<Integer> list;
+import java.util.concurrent.BlockingQueue;
 
-    public Generator(){
-        list=new ArrayList<>();
+public class Generator extends Thread {
+    private final BlockingQueue<Integer> blockingQueue;
+
+    public Generator(BlockingQueue<Integer> blockingQueue) {
+        this.blockingQueue = blockingQueue;
     }
 
     @Override
-    public void run(){
-        Random random=new Random();
-        for (int i = 0; i < 10; i++) {
-            list.add(i*i);
-            System.out.println("Num is : "+i+"= "+list.get(i));
+    public void run() {
+        for (int i = 0; i < 100; i++) {
             try {
-                Thread.sleep(200);
+                System.out.println("Generator added to queue " + i);
+                blockingQueue.put(i);
+                Thread.sleep(200L);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
     }

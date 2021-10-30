@@ -1,24 +1,19 @@
 package edu.academy.jc.metlushko.ht13;
 
+import java.util.concurrent.BlockingQueue;
+
 public class MyThreadFactory {
-    private Generator generator=null;
-    private SumAccumulator sumAccumulator=null;
+    private BlockingQueue<Integer> blockingQueue = null;
 
-    public final String GENERATOR="Generator";
-    public final String SUMACCUMULATOR="SumAccumulator";
-
-    public Thread create(String type) throws Exception {
-        if(type.equals("Generator")){
+    public Thread create(String type, BlockingQueue<Integer> blockingQueue) {
+        if (type.equals("Generator")) {
             System.out.println(Thread.currentThread().getName());
-            return generator=new Generator();
+            return  new Generator(this.blockingQueue = blockingQueue);
         }
-        if(type.equals("SumAccumulator")){
+        if (type.equals("SumAccumulator")) {
             System.out.println(Thread.currentThread().getName());
-            return sumAccumulator=new SumAccumulator();
+            return new SumAccumulator(this.blockingQueue = blockingQueue);
         }
-        else {
-            throw new MyException();
-        }
-
+        return null;
     }
 }
