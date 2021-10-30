@@ -83,7 +83,11 @@ public class MyPhoneBook implements PhoneBook {
                 while ((line = reader.readLine()) != null) {
                     String[] arrStr = line.split(";");
                     if (!line.equals("")) {
-                        phoneBookMap.put(arrStr[0], Integer.valueOf(arrStr[1]));
+                        try {
+                            phoneBookMap.put(arrStr[0],Integer.parseInt(arrStr[1]));
+                        }catch (NumberFormatException | NullPointerException e){
+                            System.out.println("Invalid data format");
+                        }
                     }
                 }
                 System.out.println(phoneBookMap);
@@ -101,7 +105,7 @@ public class MyPhoneBook implements PhoneBook {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         PhoneBook phoneBook1 = new MyPhoneBook();
         PhoneBook phoneBook2 = new MyPhoneBook();
@@ -114,6 +118,7 @@ public class MyPhoneBook implements PhoneBook {
         phoneBook1.addUser("Karl", 123456789);
         phoneBook1.addUser("", 1445646565);
         phoneBook2.addUser("Nikita", 4544);
+
 
         phoneBook1.storeToFile(new File("D:/phoneBook1.txt"));
         phoneBook2.storeToFile(new File("D:/phoneBook2.txt"));
