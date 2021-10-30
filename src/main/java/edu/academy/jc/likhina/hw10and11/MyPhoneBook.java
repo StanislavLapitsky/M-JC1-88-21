@@ -2,12 +2,10 @@ package edu.academy.jc.likhina.hw10and11;
 
 import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 
 public class MyPhoneBook implements PhoneBook {
-    private static final HashMap<String, Integer> phoneBookMap = new HashMap<>();
-
+    private final HashMap<String, Integer> phoneBookMap = new HashMap<>();
 
     @Override
     public void addUser(String name, int number) {
@@ -34,7 +32,7 @@ public class MyPhoneBook implements PhoneBook {
 
     @Override
     public String getNameByNumber(int number) {
-        String key = "there is no user with this number ";
+        String key = "There is no user with this number ";
         for (Entry<String, Integer> entry : phoneBookMap.entrySet()) {
             if (entry.getValue() == number) {
                 key = entry.getKey();
@@ -57,13 +55,12 @@ public class MyPhoneBook implements PhoneBook {
         for (Entry<String, Integer> entry : phoneBookMap.entrySet()) {
             try {
                 bufferedWriter.write(entry.getKey() + ";" + entry.getValue() + ";" + "\n");
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         try {
+            bufferedWriter.close();
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,25 +79,17 @@ public class MyPhoneBook implements PhoneBook {
         }
         if (phoneBookFile.exists()) {
             try {
-                String line = null;
-                if (reader != null) {
-                    line = reader.readLine();
-                }
-                String[] arrStr;
-                while (line != null) {
-                    arrStr = line.split(";");
-
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] arrStr = line.split(";");
                     if (!line.equals("")) {
                         phoneBookMap.put(arrStr[0], Integer.valueOf(arrStr[1]));
-
                     }
-                    System.out.println(phoneBookMap);
-
                 }
+                System.out.println(phoneBookMap);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
-
                 try {
                     assert reader != null;
                     reader.close();
@@ -114,9 +103,6 @@ public class MyPhoneBook implements PhoneBook {
 
     public static void main(String[] args) {
 
-        File phoneBookFile = new File("D:/PhoneBook.txt");
-
-
         PhoneBook phoneBook1 = new MyPhoneBook();
         PhoneBook phoneBook2 = new MyPhoneBook();
 
@@ -129,11 +115,11 @@ public class MyPhoneBook implements PhoneBook {
         phoneBook1.addUser("", 1445646565);
         phoneBook2.addUser("Nikita", 4544);
 
-        phoneBook1.storeToFile(phoneBookFile);
-        phoneBook2.storeToFile(phoneBookFile);
+        phoneBook1.storeToFile(new File("D:/phoneBook1.txt"));
+        phoneBook2.storeToFile(new File("D:/phoneBook2.txt"));
 
-        phoneBook1.loadFromFile(phoneBookFile);
-        phoneBook2.loadFromFile(phoneBookFile);
+        phoneBook1.loadFromFile(new File("D:/phoneBook1.txt"));
+        phoneBook2.loadFromFile(new File("D:/phoneBook2.txt"));
 
         System.out.println(phoneBook1.getNumberByName("Sveta") == 253697814);
         System.out.println(phoneBook1.getNumberByName("Sasha") == 954887444);
