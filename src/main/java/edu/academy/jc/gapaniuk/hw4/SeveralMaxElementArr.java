@@ -18,9 +18,11 @@ public class SeveralMaxElementArr {
             arrMax[i] = arr[i];
         }
         // solution algorithm
+        int minArrMax = minElemet(arrMax);
         for (int i = n; i < arr.length; i++) {
-            if ((arr[i] > minElemet(arrMax))) { //comparison min of max with current element
+            if ((arr[i] > minArrMax)) { //comparison min of max with current element
                 arrMax[minElemetIndex(arrMax)] = arr[i];// changing min of max
+                minArrMax = minElemet(arrMax);
             }
 
 
