@@ -3,20 +3,19 @@ package edu.academy.jc.yarokhovich.hw8_9;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyList extends ArrayList {
+public class MyList {
     private final int maxElements;
     private final List<Integer> list;
 
     public MyList(int maxElements) {
         this.maxElements = maxElements;
-        this.list = new ArrayList<>();
+        list = new ArrayList<>(maxElements);
     }
 
-    public boolean addElem(Integer n) {
+    public void addElem(Integer n) {
         if (list.size() < maxElements) {
-            return  list.add(n);
+            list.add(n);
         }
-        return false;
     }
 
     @Override
