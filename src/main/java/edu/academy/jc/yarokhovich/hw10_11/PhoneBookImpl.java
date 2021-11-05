@@ -68,8 +68,9 @@ public class PhoneBookImpl implements PhoneBook {
             while ((str = reader.readLine()) != null) {
                 String[] user = str.split(",");
                 try {
-                    book.put(Integer.valueOf(user[1]), user[0]);
-                }catch (NumberFormatException e){
+                       book.put(Integer.valueOf(user[1]), user[0]);
+                }catch (NumberFormatException | IndexOutOfBoundsException e){
+                    System.out.println("My message loadFromFile: " + e.getMessage());
                     e.printStackTrace();
                 }
             }
