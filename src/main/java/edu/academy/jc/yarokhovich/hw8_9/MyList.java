@@ -1,28 +1,28 @@
 package edu.academy.jc.yarokhovich.hw8_9;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MyList extends ArrayList{
+public class MyList extends ArrayList<Integer>{
     private final int maxElements;
-    private final List<Integer> list;
+
 
     public MyList(int maxElements) {
+        super(maxElements);
         this.maxElements = maxElements;
-        list = new ArrayList<>(maxElements);
     }
 
-    public void add(Integer n) {
-        if (list.size() < maxElements) {
-            list.add(n);
+    public boolean add(Integer n) {
+        if (super.size() < maxElements) {
+            return super.add(n);
         }
+        return false;
     }
 
     @Override
     public String toString() {
         return "MyList{" +
                 "maxElements=" + maxElements +
-                ", list=" + list +
+                ", list=" + super.toString() +
                 '}';
     }
 }

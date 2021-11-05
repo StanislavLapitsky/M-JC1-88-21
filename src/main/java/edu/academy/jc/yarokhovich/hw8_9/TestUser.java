@@ -1,6 +1,7 @@
 package edu.academy.jc.yarokhovich.hw8_9;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class TestUser {
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class TestUser {
         user1.setLastName("Smith");
         user2.setFirstName("John");
         user2.setLastName("Smith");
-        HashSet h = new HashSet();
+        Set<User> h = new HashSet<>();
         h.add(user1);
         h.add(user2);
         if (h.size() == 1){
