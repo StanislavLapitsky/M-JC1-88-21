@@ -6,11 +6,11 @@ public class Main {
         String s = "baaccc";
         charsCount.getCharsCount(s);
         MyList lexa = new MyList(3);
-        lexa.addElem(1);
-        lexa.addElem(2);
+        lexa.add(1);
+        lexa.add(2);
         System.out.println(lexa);
-        lexa.addElem(3);
-        lexa.addElem(4);
+        lexa.add(3);
+        lexa.add(4);
         System.out.println(lexa);
 
     }

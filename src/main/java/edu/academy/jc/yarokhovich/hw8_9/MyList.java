@@ -3,7 +3,7 @@ package edu.academy.jc.yarokhovich.hw8_9;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyList {
+public class MyList extends ArrayList{
     private final int maxElements;
     private final List<Integer> list;
 
@@ -12,7 +12,7 @@ public class MyList {
         list = new ArrayList<>(maxElements);
     }
 
-    public void addElem(Integer n) {
+    public void add(Integer n) {
         if (list.size() < maxElements) {
             list.add(n);
         }
