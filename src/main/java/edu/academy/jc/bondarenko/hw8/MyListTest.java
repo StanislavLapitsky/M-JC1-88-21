@@ -1,5 +1,4 @@
 package edu.academy.jc.bondarenko.hw8;
-
 public class MyListTest {
     public static void main(String[] args) {
         try {
