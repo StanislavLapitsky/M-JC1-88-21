@@ -9,17 +9,17 @@ public class MyList extends ArrayList<Integer> {
         super(maxElements);
         this.maxElements = maxElements;
     }
-    public boolean add(int num) throws CatchLenghtEx {
-        if (super.size() < maxElements)
+    @Override
+    public boolean add(Integer num) {
+        if(super.size()<maxElements) {
             return super.add(num);
-        else {
-            throw new CatchLenghtEx();
         }
+        else return false;
     }
     public void print() {
         System.out.println("Your collection: ");
         Iterator<Integer> integerIterator = super.iterator();
         while (integerIterator.hasNext())
-            System.out.println(integerIterator.next() + " ");
+            System.out.print(integerIterator.next() + " ");
     }
 }
