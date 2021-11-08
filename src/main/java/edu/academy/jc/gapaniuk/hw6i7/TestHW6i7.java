@@ -12,18 +12,18 @@ public class TestHW6i7 {
         Calendar cc = new GregorianCalendar(1222, 11, 22);
         today = cc.getTime();
         System.out.println(today.toString());
-        TestHW6i7 D = new TestHW6i7();
+        TestHW6i7 d = new TestHW6i7();
 
-        D.checkDate(today);
-        if (!D.LocalTime("21:04:34")){
+        d.checkDate(today);
+        if (!d.LocalTime("21:04:34")){
             System.out.println("error");
-        };if (!D.LocalTime("01:04:39")){
+        };if (!d.LocalTime("01:04:39")){
             System.out.println("error");
-        };if (D.LocalTime("21.04:34")){
+        };if (d.LocalTime("21.04:34")){
             System.out.println("error");
-        };if (D.LocalTime("31:04:34")){
+        };if (d.LocalTime("31:04:34")){
             System.out.println("error");
-        };if (D.LocalTime("25:04:34")){
+        };if (d.LocalTime("25:04:34")){
             System.out.println("error");
         };
 

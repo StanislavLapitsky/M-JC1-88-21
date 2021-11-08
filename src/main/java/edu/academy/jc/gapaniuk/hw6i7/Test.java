@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 public class Test {
     public static void main(String[] args) {
-        Test T = new Test();
+        Test t = new Test();
         FoodGreen first = new FoodGreen();
         first.setName("apple");
         first.type= FoodType.FRUIT;
@@ -13,14 +13,16 @@ public class Test {
         first1.setName("orange");
         first1.type=FoodType.FRUIT;
 
-        FoodGreen first2 = new FoodGreen();
+        FoodProtein first2 = new FoodProtein();
         first2.setName("pork");
         first2.type=FoodType.MEAT;
 
+        Food[] foods1={first,first1};
+        System.out.println(t.isVegetarian(foods1));
 
         Food[] foods={first,first1,first2};
-        System.out.println(T.isVegetarian(foods));
-        System.out.println(first1.getName());
+        System.out.println(t.isVegetarian(foods));
+        System.out.println(first2.getName());
 
 
     }
