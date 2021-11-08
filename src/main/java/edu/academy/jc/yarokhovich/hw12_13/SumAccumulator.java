@@ -1,30 +1,38 @@
 package edu.academy.jc.yarokhovich.hw12_13;
 
 import java.util.List;
-//Tell me please, I'm confused, for some reason writes: "Index 1 out of bounds for length 0". error in SumAccumulator, on line 14
+
 public class SumAccumulator extends Thread {
     List<Integer> list;
     public Integer sum = 0;
-
+    public int counter = 0;
     public SumAccumulator(List<Integer> list) {
         this.list = list;
     }
 
     public void run() {
-        createSum();
-    }
-    public int createSum(){
-        for (int i = 3; i < 100; i++) {
-            Integer val = list.get(i);
-            list.add(val);
-//            Integer integer = list.remove(i);
-//            Integer val = list.remove(i);
-//            sum += val;
-//            System.out.println("Sum " + sum);
-//            yield();
+        try {
+            createSum();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        System.out.println("summa " + sum);
-        return sum;
+    }
+    public int createSum() throws InterruptedException {
+
+                while (counter!=100){
+                    if(list.size()!=0) {
+                        synchronized (list) {
+                            Integer val = list.remove(0);
+                            sum += val;
+                            System.out.println("Sum " + sum);
+                            counter++;
+                        }
+                    }else {
+                        Thread.sleep(200);
+                    }
+                }
+                System.out.println("summa " + sum);
+                return sum;
     }
 }
 

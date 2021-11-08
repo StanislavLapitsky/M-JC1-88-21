@@ -1,5 +1,5 @@
 package edu.academy.jc.yarokhovich.hw12_13;
-//Tell me please, I'm confused, for some reason writes: "Index 1 out of bounds for length 0". error in SumAccumulator, on line 14
+
 import java.util.List;
 
 public class MyThreadFactory {
