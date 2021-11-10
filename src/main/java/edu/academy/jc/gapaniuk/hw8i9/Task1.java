@@ -2,7 +2,7 @@ package edu.academy.jc.gapaniuk.hw8i9;
 
 import java.util.*;
 
-public class task1 {
+public class Task1 {
     public static void main(String[] args) {
         String s = "aaabccbbba";
         for (Map.Entry<Character, Integer> entry : getCharsCount(s).entrySet()) {
