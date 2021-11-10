@@ -18,19 +18,27 @@ public class Generator extends Thread {
         this.genList = list;
     }
 
+    public int sum;
+
     @Override
     public void run() {
         int i1;
-        for (int i = 0; i < 5; i++) {
+        try {
+            sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < 20; i++) {
             synchronized (this.genList) {
 
                 i1 = (int) (Math.random() * 100);
-                System.out.println("Gen " + i1);
+                this.sum+=i1;
+                System.out.println("Gen " +this.getName()+"  " + i1+ "  sum= "+this.sum);
                 this.genList.add(i1);
                 this.genList.notify();
             }
                 try {
-                    sleep(200);
+                    sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

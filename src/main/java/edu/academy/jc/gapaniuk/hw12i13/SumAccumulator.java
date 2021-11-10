@@ -22,7 +22,7 @@ public class SumAccumulator extends Thread {
     @Override
     public void run() {
         int s1;
-        int i = 0;
+        int i = 1;
         synchronized (this.sumList) {
             if (this.sumList.size() == 0) {
                 try {
@@ -32,23 +32,39 @@ public class SumAccumulator extends Thread {
                 }
 
             }
-            while ((this.sumList.size() > 0) & (i < 5)) {
-                s1 = this.sumList.get(0);
-                System.out.println("Acc "+s1);
-                this.sumList.remove(0);
-                this.sum += s1;
-                i++;
-                if (this.sumList.size() == 0) {
+            this.sumList.notify();
+        }
+
+
+        while (i <= 30) {
+            try {
+                sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            synchronized (this.sumList) {
+                if ((this.sumList.size() == 0) & (i <= 30)) {
                     try {
                         this.sumList.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                } else {
 
+
+                    s1 = this.sumList.get(0);
+                    System.out.println(("Acc " + this.getName() + "  " + s1 + "  sum " + i + " = " + this.sum));
+                    this.sumList.remove(0);
+                    this.sum += s1;
+                    i++;
                 }
+                this.sumList.notify();
 
 
             }
+
+
         }
 
 

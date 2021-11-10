@@ -10,13 +10,13 @@ public class SecondTask {
         int n = 50;
         Integer a = Stream
                 .iterate(2, x -> (x * 5) < n, x -> x + 2)
-                //.peek(System.out::println)
+
                 .filter(x -> x > 10)
-               // .peek(System.out::println)
+
                 .findFirst()
                 .orElse(null);
 
-        //Optional<Integer> aa = Optional.of();
+
 
         System.out.println(a);
     }

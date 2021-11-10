@@ -14,7 +14,7 @@ public class FirstTask {
                     return intValue % 2 == 0;
                 })
                 .map(intValue -> intValue.toString())
-                .collect(Collectors.toSet()); //завершающая операция
+                .collect(Collectors.toSet());
         count.stream()
                 .map(s->s+" ")
                 .forEach(System.out::print);
