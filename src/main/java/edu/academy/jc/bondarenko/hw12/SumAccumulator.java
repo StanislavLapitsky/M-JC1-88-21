@@ -14,22 +14,21 @@ public class SumAccumulator extends Thread {
 
     public void run() {
         while (counter < 100) {
-            if (list.size() != 0) {
-                synchronized (list) {
+            synchronized (list) {
+                if (list.size() != 0) {
                     temp = list.get(0);
                     list.remove(0);
                     sum += temp;
                     System.out.println("Sum is: " + sum);
                     counter++;
                     System.out.println("counter for accumulator " + counter);
+                } else {
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-            } else {
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
             }
         }
     }
