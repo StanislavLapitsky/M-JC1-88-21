@@ -7,7 +7,7 @@ public interface PhoneBook {
     public abstract void addUser(int number, String name);
     public abstract Integer getNumberByName(String name);
     public abstract String getNameByNumber(int number);
-    public abstract void storeToFile(File phoneBookFile) throws IOException;
+    public abstract void storeToFile(File phoneBookFile);
     public abstract void loadFromFile(File phoneBookFile) ;
 
 }

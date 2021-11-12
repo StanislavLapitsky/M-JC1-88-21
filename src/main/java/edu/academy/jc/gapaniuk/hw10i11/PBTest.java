@@ -1,27 +1,26 @@
 package edu.academy.jc.gapaniuk.hw10i11;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class PBTest {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        PhoneBookImpl PhoneBook1 = new PhoneBookImpl();
-        PhoneBookImpl PhoneBook2 = new PhoneBookImpl();
+        PhoneBookExtend PhoneBook1 = new PhoneBookExtend();
+        PhoneBookExtend PhoneBook2 = new PhoneBookExtend();
 
         PhoneBook1.addUser(123,"Sergey");
         PhoneBook1.addUser(125,"Maria");
         PhoneBook1.addUser(256,"Andrey");
         PhoneBook1.addUser(759,"Sveta");
-        System.out.println(PhoneBook1.getNameByNumber(256));
-        System.out.println(PhoneBook1.getNumberByName("Maria"));
+
         File pbFile = new File("d:/","pb.txt");
 
-        PhoneBook1.storeToFile(pbFile);
+     //   PhoneBook1.storeToFile(pbFile);
         PhoneBook2.loadFromFile(pbFile);
 
-        System.out.println(PhoneBook2.getNumberByName("Maria"));
+        System.out.println(PhoneBook2.getNumberByName("Inna"));
+        System.out.println(PhoneBook2.getNameByNumber(200));
 
 
 
