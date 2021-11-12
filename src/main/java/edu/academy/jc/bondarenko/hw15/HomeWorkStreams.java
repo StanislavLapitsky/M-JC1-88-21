@@ -18,6 +18,7 @@ public class HomeWorkStreams {
                         return String.valueOf(o1.charAt(1)).compareTo(String.valueOf(o2.charAt(1)));
                     }
                 })
+                .skip(1)
                 .peek(x -> System.out.print(x + " "))
                 .sorted(new Comparator<String>() {
                     @Override
@@ -25,6 +26,7 @@ public class HomeWorkStreams {
                         return o2.compareTo(o1);
                     }
                 })
+                .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .map(o -> o.toUpperCase())
                 .peek(x -> System.out.print(x + " "))
