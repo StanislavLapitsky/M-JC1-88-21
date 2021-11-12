@@ -22,13 +22,12 @@ public class SumAccumulator extends Thread {
                     System.out.println("Sum is: " + sum);
                     counter++;
                     System.out.println("counter for accumulator " + counter);
-                } else {
-                    try {
-                        Thread.sleep(200);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
+            }
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
