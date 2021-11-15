@@ -5,10 +5,7 @@ import java.io.*;
 public class PhoneBookExtend extends PhoneBookAC {
 
 
-    @Override
-    public void addUser(int number, String name) {
-        this.put(number, name);
-    }
+
 
     @Override
     public Integer getNumberByName(String name) {
@@ -39,12 +36,19 @@ public class PhoneBookExtend extends PhoneBookAC {
         try {
             out = new BufferedWriter(new FileWriter(phoneBookFile));
             for (Entry entry : this.entrySet()) {
-
                 out.write(entry.getKey() + "," + entry.getValue() + "\n");
-            } out.close();
+            }
+
         } catch (IOException e) {
             System.out.println("This file is not for store");
             e.printStackTrace();
+        }finally {
+            try {
+                if (out!=null){
+                out.close();}
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 
@@ -75,11 +79,19 @@ public class PhoneBookExtend extends PhoneBookAC {
                     i++;
                 }
 
-            in.close();
+
 
         } catch (IOException e) {
             System.out.println("File for load not found");
             e.printStackTrace();
+        }
+        finally {
+            try {
+                if (in!=null){
+                in.close();}
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
 

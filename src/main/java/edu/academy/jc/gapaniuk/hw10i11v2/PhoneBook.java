@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 
 public interface PhoneBook {
-    public abstract void addUser(int number, String name);
-    public abstract Integer getNumberByName(String name);
-    public abstract String getNameByNumber(int number);
-    public abstract void storeToFile(File phoneBookFile);
-    public abstract void loadFromFile(File phoneBookFile) ;
+    void addUser(int number, String name);
+    Integer getNumberByName(String name);
+    String getNameByNumber(int number);
+    void storeToFile(File phoneBookFile);
+    void loadFromFile(File phoneBookFile) ;
 
 }

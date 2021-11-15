@@ -40,13 +40,13 @@ public class PhoneBookImpl implements PhoneBook{
 
     @Override
     public void storeToFile(File phoneBookFile)  {
-        BufferedWriter out = null;
-        try {
-            out = new BufferedWriter(new FileWriter(phoneBookFile));
+
+        try ( BufferedWriter out = new BufferedWriter(new FileWriter(phoneBookFile));) {
+
             for (Map.Entry entry : setOfMyPB.entrySet()) {
 
                 out.write(entry.getKey() + "," + entry.getValue() + "\n");
-            } out.close();
+            }
         } catch (IOException e) {
             System.out.println("This file is not for store");
             e.printStackTrace();
@@ -57,8 +57,8 @@ public class PhoneBookImpl implements PhoneBook{
     @Override
     public void loadFromFile(File phoneBookFile) {
         setOfMyPB.clear();
-        BufferedReader in = null;
-        try {in = new BufferedReader(new FileReader(phoneBookFile));
+
+        try (BufferedReader in = new BufferedReader(new FileReader(phoneBookFile));) {
             String line;
             String divider = ",";
             int i=1;
@@ -79,7 +79,7 @@ public class PhoneBookImpl implements PhoneBook{
                 i++;
             }
 
-            in.close();
+
 
         } catch (IOException e) {
             System.out.println("File for load not found");
