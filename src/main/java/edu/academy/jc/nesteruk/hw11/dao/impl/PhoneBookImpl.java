@@ -2,10 +2,7 @@ package edu.academy.jc.nesteruk.hw11.dao.impl;
 
 import edu.academy.jc.nesteruk.hw11.dao.PhoneBook;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -63,8 +60,6 @@ public class PhoneBookImpl implements PhoneBook {
                 fw.write(key + ", " + value + "\n");
             }
 
-            fw.close();
-
         } catch (IOException e) {
             throw new IOException("cannot be saved to file");
         }
@@ -74,21 +69,23 @@ public class PhoneBookImpl implements PhoneBook {
     public void loadFromFile(File phoneBookFile) throws IOException {
 
         try {
-            FileReader reader = new FileReader(phoneBookFile);
-            int c;
+            BufferedReader reader = new BufferedReader(new FileReader(phoneBookFile));
             StringBuilder stringBuilder = new StringBuilder();
-            while ((c = reader.read()) != -1){
-                if ((char) c != '\n'){
-                    stringBuilder.append((char) c);
+            String line;
+            while ((line = reader.readLine()) != null){
+                if (line != "\n"){
+                    stringBuilder.append(line);
                 } else {
                     String[] temp = stringBuilder.toString().split(", ");
                     mapPhoneBook.put(Integer.parseInt(temp[0]),temp[1]);
                     stringBuilder = new StringBuilder();
                 }
             }
+
+            reader.close();
+
         } catch (IOException e) {
             throw new IOException("cannot be loaded from file");
-
         }
     }
 }
