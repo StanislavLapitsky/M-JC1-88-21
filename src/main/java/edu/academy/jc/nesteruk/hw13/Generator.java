@@ -10,7 +10,7 @@ public class Generator extends Thread {
         this.integerList = integerList;
     }
 
-    public void run() {
+    public synchronized void run() {
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
             integerList.add(random.nextInt(100));

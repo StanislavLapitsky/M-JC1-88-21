@@ -10,7 +10,7 @@ public class SumAccumulator extends Thread {
         this.integerList = integerList;
     }
 
-    public void run() {
+    public synchronized void run() {
         int sum = 0;
         for (int i = 0; i < integerList.size(); i++) {
             sum += integerList.get(i);
